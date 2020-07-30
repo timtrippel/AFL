@@ -3305,6 +3305,9 @@ keep_as_crash:
       last_crash_time = get_cur_time();
       last_crash_execs = total_execs;
 
+      /* Hardware-Fuzzing: enable time-to-first crash measurements*/
+      raise(SIGINT);
+
       break;
 
     case FAULT_ERROR: FATAL("Unable to execute target application");
